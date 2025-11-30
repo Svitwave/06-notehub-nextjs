@@ -5,11 +5,11 @@ import NoteDetailsClient from "./NoteDetails.client";
 import css from "./NoteDetails.module.css";
 
 type Props = {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 };
 
 export default async function NoteDetailsPage({ params }: Props) {
-  const { id } = params;
+  const { id } = await params;
 
   const queryClient = new QueryClient();
 

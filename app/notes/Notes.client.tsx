@@ -56,8 +56,13 @@ export default function NotesClient({
           Create note +
         </button>
       </header>
+      {isSuccess && notes.length > 0 && <NoteList notes={notes} />}
 
-      <NoteList notes={notes} />
+      {isSuccess && notes.length === 0 && (
+        <p>No notes found. Try changing your search.</p>
+      )}
+
+      {/* <NoteList notes={notes} /> */}
       {isLoading && <p>Loading...</p>}
 
       {isModalOpen && (
